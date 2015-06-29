@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/Adapter/FriendListAdapter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/Model/Friend.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/Model/FriendWrapper.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/Utils/Utils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/Adapter/FriendListAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/tuandn/com/connectlinked/DisplayFriendListActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/tuandn/com/connectlinked/LoginActivity.java" charset="UTF-8" />
@@ -13,5 +9,6 @@
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/friendlist_activity.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/login_screen.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/main_screen.xml" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

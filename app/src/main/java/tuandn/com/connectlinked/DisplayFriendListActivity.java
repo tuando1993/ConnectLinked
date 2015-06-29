@@ -2,6 +2,14 @@ package tuandn.com.connectlinked;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.linkedin.platform.APIHelper;
+import com.linkedin.platform.errors.LIApiError;
+import com.linkedin.platform.listeners.ApiListener;
+import com.linkedin.platform.listeners.ApiResponse;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -28,6 +36,25 @@ public class DisplayFriendListActivity extends ListActivity {
 
         friendList = new ArrayList<Friend>();
 
+        String url = "https://api.linkedin.com/v1/people/~/connections";
+
+        APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
+        apiHelper.getRequest(this, url, new ApiListener() {
+            @Override
+            public void onApiSuccess(ApiResponse apiResponse) {
+                System.out.println(apiResponse.toString());
+                try{
+                    JSONObject object = apiResponse.getResponseDataAsJson();
+                }
+                catch (Exception e){
+                }
+            }
+
+            @Override
+            public void onApiError(LIApiError LIApiError) {
+                Toast.makeText(getApplication(), LIApiError.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 }

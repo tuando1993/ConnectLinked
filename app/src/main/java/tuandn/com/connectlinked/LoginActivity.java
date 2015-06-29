@@ -14,9 +14,6 @@ import com.linkedin.platform.errors.LIAuthError;
 import com.linkedin.platform.listeners.AuthListener;
 import com.linkedin.platform.utils.Scope;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LoginActivity extends Activity {
 
 
@@ -31,11 +28,10 @@ public class LoginActivity extends Activity {
 
     // Build the list of member permissions our LinkedIn session requires
     private static Scope buildScope() {
-        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE);
+        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE,Scope.R_CONTACTINFO);
     }
 
     public void Login(View v){
-
 
         LISession liSession = LISessionManager.getInstance(LoginActivity.this).getSession();
         AccessToken accessToken= liSession.getAccessToken();
@@ -67,22 +63,6 @@ public class LoginActivity extends Activity {
 //                    Start Main Activity
                 }
     }
-
-//        String url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name)";
-//
-//        APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
-//        apiHelper.getRequest(this, url, new ApiListener() {
-//            @Override
-//            public void onApiSuccess(ApiResponse apiResponse) {
-//                Toast.makeText(getApplication(),"Success",Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onApiError(LIApiError LIApiError) {
-//                Toast.makeText(getApplication(),"Error",Toast.LENGTH_LONG).show();
-//            }
-//        });
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
