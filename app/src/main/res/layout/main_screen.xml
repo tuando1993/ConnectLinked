@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:id="@+id/user_name"
+        android:textSize="18dp"
+        android:textColor="@android:color/primary_text_dark"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_name"
+        android:text="@string/status"
+        android:id="@+id/tv_status"
+        android:textSize="24dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/tv_status"
+        android:id="@+id/et_status"
+        android:inputType="text"
+        android:hint="@string/hint_status"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_status"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:text="@string/post"
+        android:onClick="postOnWall"
+        android:id="@+id/post" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/post"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/friend_list"
+        android:onClick="ShowFriendList"
+        android:id="@+id/friend_list" />
+
+</RelativeLayout>
