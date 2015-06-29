@@ -45,8 +45,6 @@ public class MainActivity extends Activity {
     }
 
     private void displayUsername() {
-        LISession liSession = LISessionManager.getInstance(MainActivity.this).getSession();
-
         String url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name)";
 
         APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
@@ -59,7 +57,6 @@ public class MainActivity extends Activity {
                     username.setText("Hello, "+object.getString("firstName") +" "+ object.getString("lastName"));
                 }
                 catch (Exception e){
-
                 }
             }
 
@@ -74,6 +71,33 @@ public class MainActivity extends Activity {
 
         EditText status = (EditText) findViewById(R.id.et_status);
         String status_content = status.getText().toString();
+
+        String url = "https://api.linkedin.com/v1/people/~/shares";
+
+        String payload = "{" +
+                //Status Content
+                "\"comment\":\""+status_content +
+                //Link Share
+                "\"," +
+                //Who can see this status
+                "\"visibility\":{" +
+                "    \"code\":\"anyone\"}" +
+                "}";
+
+        APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
+        apiHelper.postRequest(MainActivity.this, url, payload, new ApiListener() {
+            @Override
+            public void onApiSuccess(ApiResponse apiResponse) {
+                // Success!
+                Toast.makeText(getApplicationContext(),"Your status has been posted",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onApiError(LIApiError liApiError) {
+                // Error making POST request!
+                Toast.makeText(getApplicationContext(),liApiError.toString(),Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
