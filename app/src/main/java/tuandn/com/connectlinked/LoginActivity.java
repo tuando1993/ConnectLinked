@@ -28,7 +28,7 @@ public class LoginActivity extends Activity {
 
     // Build the list of member permissions our LinkedIn session requires
     private static Scope buildScope() {
-        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE,Scope.R_CONTACTINFO);
+        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE);
     }
 
     public void Login(View v){

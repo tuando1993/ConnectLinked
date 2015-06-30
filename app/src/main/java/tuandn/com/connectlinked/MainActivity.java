@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
                     username.setText("Hello, "+object.getString("firstName") +" "+ object.getString("lastName"));
                 }
                 catch (Exception e){
+                    Toast.makeText(getApplication(),"Getting Username Failed",Toast.LENGTH_LONG).show();
                 }
             }
 
